@@ -1,0 +1,28 @@
+group 'DC'
+version '1.0-SNAPSHOT'
+
+apply plugin: 'java'
+
+sourceCompatibility = 1.5
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        url "http://repo.jenkins-ci.org/releases/"
+    }
+}
+
+dependencies {
+    compile "org.testng:testng:6.8.21"
+    compile "org.seleniumhq.selenium:selenium-server-standalone:2.48.2"
+    compile "org.seleniumhq.selenium:selenium-server:2.9.0"
+    compile group: 'log4j', name: 'log4j', version: '1.2.17'}
+
+test {
+    useTestNG {
+        suites 'src/testconfig/testng.xml'
+        useDefaultListeners = true
+    }
+}
+
