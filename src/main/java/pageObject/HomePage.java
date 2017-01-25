@@ -29,6 +29,9 @@ public class HomePage extends AbstractPage {
     @FindBy(className = "text-center")
     private WebElement termsOfUsePageTitle;
 
+    @FindBy(className = "iub_header")
+    private WebElement privacyPolicyTitle;
+
     public void clickAnAvatar(){
         userAvatar.click();
     }
@@ -53,6 +56,8 @@ public class HomePage extends AbstractPage {
     }
 
     public String getTermsOfusePagetitle(){return termsOfUsePageTitle.getText();}
+
+    public String getPrivacyPolicyPageTitle(){return privacyPolicyTitle.getText();}
 
 }
 

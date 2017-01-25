@@ -42,7 +42,7 @@ public class HomePageTest extends TestBase {
 
     // Terms of use link checking
     @Test(priority = 2, alwaysRun = true)
-    public void termsOfUseTest(){
+    public void termsOfUseTest() {
         Log.info("Once user logs in he tries to click terms of use link");
         login.loginIntoTheApp(Constants.Username, Constants.Password);
         Log.info("User logs in successfully");
@@ -52,6 +52,19 @@ public class HomePageTest extends TestBase {
         home.clickTermsLink();
         Log.info("Terms of use page opens, PASS");
         Assert.assertTrue(home.getTermsOfusePagetitle().contains("DESIGN CARTA AND TOURING MODE TERMS OF USE"));
+    }
 
+    // Privacy Policy link checking
+    @Test(priority = 3, alwaysRun = true)
+    public void PrivacyPolicyTest() {
+        Log.info("Once user logs in he tries to click Privacy Policy link");
+        login.loginIntoTheApp(Constants.Username, Constants.Password);
+        Log.info("User logs in successfully");
+        home.sleep();
+        home.clickAnAvatar();
+        Log.info("User clicks an avatar");
+        home.clickPolicyLink();
+        Log.info("Privacy Policy page opens, PASS");
+        Assert.assertTrue(home.getPrivacyPolicyPageTitle().contains("Privacy Policy"));
     }
 }
