@@ -30,6 +30,7 @@ public class ForgotPasswordTest extends TestBase {
         driver.get("http://designcarta.com");
     }
 
+    // Reset password test
     @Test(priority = 1, alwaysRun = true)
     public void resetPasswordTest(){
         Log.info("Trying to reset password");
@@ -51,7 +52,7 @@ public class ForgotPasswordTest extends TestBase {
 
 
     }
-
+    // Reset password  using incorrect/ not existing email test
     @Test(priority = 2, alwaysRun = true)
     public void resetPasswordWithIncorrectEmailTest(){
         Log.info("Trying to reset password using not existing/ incorrect email");
@@ -72,6 +73,7 @@ public class ForgotPasswordTest extends TestBase {
         Log.info("Ops something went wrong , PASS");
     }
 
+   // Checking Login here link
     @Test(priority = 3, alwaysRun = true)
     public void loginHereLinkTet(){
         login.clickForgotPasswordLink();

@@ -41,7 +41,7 @@ public class LogInLogOutTest  extends TestBase {
         Log.info("Trying to login with correct credentials");
         login.loginIntoTheApp(Constants.Username, Constants.Password);
         login.sleep();
-        assertTrue(home.getTitle().contains("Featured Items Feed"));
+        assertTrue(home.getHomePageTitle().contains("Featured Items Feed"));
         Log.info("User logs in successfully, PASS");
     }
 
@@ -118,13 +118,17 @@ public class LogInLogOutTest  extends TestBase {
         login.loginIntoTheApp(Constants.Username, Constants.Password);
         login.sleep();
         Log.info("Login successfully, PASS");
-        assertTrue(home.getTitle().contains("Featured Items Feed"));
+        assertTrue(home.getHomePageTitle().contains("Featured Items Feed"));
         home.logOut();
         Log.info("Log out successfully, PASS");
-
-        loginTest();
-
     }
+
+    // Resuest an account check
+   // @Test(priority = 8, alwaysRun = true)
+  //  public void RequestAnAccountTest(){
+   //     Log.info("Resuest an account check");
+  //      login.clickRequestAnAccountLink();
+  //  }
 
 }
 
