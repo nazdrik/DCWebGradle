@@ -37,26 +37,44 @@ public class LogInLogOutTest  extends TestBase {
 
     //("Enter correct data")
     @Test (priority = 1, alwaysRun = true)
-    public void loginTest(){
-        Log.info("Trying to login with correct credentials");
-        login.loginIntoTheApp(Constants.Username, Constants.Password);
+    public void dealerLoginTest(){
+        Log.info("Trying to login as Dealer with correct credentials");
+        login.loginIntoTheApp(Constants.Dealername, Constants.Password);
+        login.sleep();
+        assertTrue(home.getHomePageTitle().contains("Featured Items Feed"));
+        Log.info("User logs in successfully, PASS");
+    }
+
+    @Test (priority = 2, alwaysRun = true)
+    public void designerLoginTest(){
+        Log.info("Trying to login as Dealer with correct credentials");
+        login.loginIntoTheApp(Constants.Designername, Constants.Password);
+        login.sleep();
+        assertTrue(home.getHomePageTitle().contains("Featured Items Feed"));
+        Log.info("User logs in successfully, PASS");
+    }
+
+    @Test (priority = 3, alwaysRun = true)
+    public void artistLoginTest(){
+        Log.info("Trying to login as Dealer with correct credentials");
+        login.loginIntoTheApp(Constants.Artistname, Constants.Password);
         login.sleep();
         assertTrue(home.getHomePageTitle().contains("Featured Items Feed"));
         Log.info("User logs in successfully, PASS");
     }
 
     //("Enter only log in")
-    @Test (priority = 2, alwaysRun = true)
+    @Test (priority = 4, alwaysRun = true)
     public void loginOnlyWithEmail() {
         Log.info("Trying to login using only login");
-        login.loginIntoTheApp(Constants.Username, "");
+        login.loginIntoTheApp(Constants.Dealername, "");
         login.sleep();
         assertThat("Login button is disabled", login.loginButtonIsDisabled(), is(true)) ;
         Log.info("Login button is disabled, PASS");
     }
 
     //("Enter only password")
-    @Test (priority = 3, alwaysRun = true)
+    @Test (priority = 5, alwaysRun = true)
     public void loginOnlyWithPassword(){
         Log.info("Trying to login using only password");
         login.loginIntoTheApp("", Constants.Password);
@@ -66,7 +84,7 @@ public class LogInLogOutTest  extends TestBase {
     }
 
     //("Login with incorrect username format")
-    @Test (priority = 4, alwaysRun = true)
+    @Test (priority = 6, alwaysRun = true)
     public void loginWithIncorrectUsernameFormat(){
         Log.info("Trying to login using incorrect username format");
         login.loginIntoTheApp(Constants.InvalidUsernameFormat, "");
@@ -76,7 +94,7 @@ public class LogInLogOutTest  extends TestBase {
     }
 
     //("Login with incorrect username")
-    @Test (priority = 5, alwaysRun = true)
+    @Test (priority = 7, alwaysRun = true)
     public void loginWithIncorrectUserName(){
         Log.info("Trying to login using incorrect username");
         login.loginIntoTheApp(Constants.InvalidUsername, Constants.Password);
@@ -94,10 +112,10 @@ public class LogInLogOutTest  extends TestBase {
     }
 
     //("Login with incorrect password")
-    @Test (priority = 6, alwaysRun = true)
+    @Test (priority = 8, alwaysRun = true)
     public void loginWithIncorrectPassword(){
         Log.info("Trying to login using incorrect password");
-        login.loginIntoTheApp(Constants.Username, Constants.InvalidPassword);
+        login.loginIntoTheApp(Constants.Dealername, Constants.InvalidPassword);
         (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {
                 try {
@@ -112,10 +130,10 @@ public class LogInLogOutTest  extends TestBase {
     }
 
     //("Login and Log out test")
-    @Test (priority = 7, alwaysRun = true)
+    @Test (priority = 9, alwaysRun = true)
     public void logInLogOut() throws Exception {
         Log.info("Log in - log out check ");
-        login.loginIntoTheApp(Constants.Username, Constants.Password);
+        login.loginIntoTheApp(Constants.Dealername, Constants.Password);
         login.sleep();
         Log.info("Login successfully, PASS");
         assertTrue(home.getHomePageTitle().contains("Featured Items Feed"));

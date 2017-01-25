@@ -36,7 +36,7 @@ public class ForgotPasswordTest extends TestBase {
         Log.info("Trying to reset password");
         login.clickForgotPasswordLink();
         login.sleep();
-        forgotPassword.enterEmail(Constants.Username);
+        forgotPassword.enterEmail(Constants.Dealername);
         forgotPassword.clickResetPasswordButton();
         (new WebDriverWait(driver, 10)).until(new ExpectedCondition<Boolean>() {
             public Boolean apply(WebDriver driver) {

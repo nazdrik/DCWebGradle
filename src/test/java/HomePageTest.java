@@ -24,12 +24,12 @@ public class HomePageTest extends TestBase {
         driver.manage().window().maximize();
         driver.get("http://designcarta.com");
     }
-    
+
     // Support link checking
     @Test(priority = 1, alwaysRun = true)
     public void supportTest(){
         Log.info("Once user logs in he tries to click support link");
-        login.loginIntoTheApp(Constants.Username, Constants.Password);
+        login.loginIntoTheApp(Constants.Dealername, Constants.Password);
         Log.info("User logs in successfully");
         home.clickAnAvatar();
         Log.info("User clicks an avatar");
@@ -44,7 +44,7 @@ public class HomePageTest extends TestBase {
     @Test(priority = 2, alwaysRun = true)
     public void termsOfUseTest() {
         Log.info("Once user logs in he tries to click terms of use link");
-        login.loginIntoTheApp(Constants.Username, Constants.Password);
+        login.loginIntoTheApp(Constants.Dealername, Constants.Password);
         Log.info("User logs in successfully");
         home.sleep();
         home.clickAnAvatar();
@@ -59,7 +59,7 @@ public class HomePageTest extends TestBase {
     @Test(priority = 3, alwaysRun = true)
     public void PrivacyPolicyTest() {
         Log.info("Once user logs in he tries to click Privacy Policy link");
-        login.loginIntoTheApp(Constants.Username, Constants.Password);
+        login.loginIntoTheApp(Constants.Dealername, Constants.Password);
         Log.info("User logs in successfully");
         home.sleep();
         home.clickAnAvatar();
