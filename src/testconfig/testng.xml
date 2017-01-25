@@ -2,8 +2,10 @@
 
 <suite name="Suite" verbose="1" parallel="tests" thread-count="6">
 
-    <test name="ChatModuleTests">
+    <test name="NoPackage">
         <classes>
             <class name="ForgotPasswordTest"/>
+            <class name="LogInLogOutTest"/>
         </classes>
-    </test>  </suite>
+    </test>
+    </suite>
