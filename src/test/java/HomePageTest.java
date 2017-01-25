@@ -1,11 +1,12 @@
 import org.apache.log4j.Logger;
 import org.apache.log4j.xml.DOMConfigurator;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import utility.Constants;
 
 import java.util.concurrent.TimeUnit;
+
+import static org.testng.Assert.assertTrue;
 
 /**
  * Created by alexey on 25/01/17.
@@ -23,10 +24,9 @@ public class HomePageTest extends TestBase {
         driver.manage().window().maximize();
         driver.get("http://designcarta.com");
     }
-
-
+    
     // Support link checking
-  /*  @Test(priority = 1, alwaysRun = true)
+    @Test(priority = 1, alwaysRun = true)
     public void supportTest(){
         Log.info("Once user logs in he tries to click support link");
         login.loginIntoTheApp(Constants.Username, Constants.Password);
@@ -35,10 +35,10 @@ public class HomePageTest extends TestBase {
         Log.info("User clicks an avatar");
         home.sleep();
         home.clickSupportLink();
-       //assertThat("", home.clickSupportLink(), is(true));
+        Log.info("User clicks support link");
+        assertTrue(home.clickSupportLink().contains("support@designcarta.com"));
         Log.info("Letter for support team is opened, PASS");
     }
-    */
 
     // Terms of use link checking
     @Test(priority = 2, alwaysRun = true)
@@ -50,8 +50,9 @@ public class HomePageTest extends TestBase {
         home.clickAnAvatar();
         Log.info("User clicks an avatar");
         home.clickTermsLink();
+        Log.info("User clicks Terms of use link");
+        assertTrue(home.getTermsOfusePagetitle().contains("DESIGN CARTA AND TOURING MODE TERMS OF USE"));
         Log.info("Terms of use page opens, PASS");
-        Assert.assertTrue(home.getTermsOfusePagetitle().contains("DESIGN CARTA AND TOURING MODE TERMS OF USE"));
     }
 
     // Privacy Policy link checking
@@ -64,7 +65,8 @@ public class HomePageTest extends TestBase {
         home.clickAnAvatar();
         Log.info("User clicks an avatar");
         home.clickPolicyLink();
+        Log.info("User clicks Privacy Policy link");
+        assertTrue(home.getPrivacyPolicyPageTitle().contains("Privacy Policy"));
         Log.info("Privacy Policy page opens, PASS");
-        Assert.assertTrue(home.getPrivacyPolicyPageTitle().contains("Privacy Policy"));
     }
 }

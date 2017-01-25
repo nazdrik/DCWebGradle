@@ -36,7 +36,7 @@ public class HomePage extends AbstractPage {
         userAvatar.click();
     }
 
-    public void clickSupportLink(){supportLink.click();}
+    public String clickSupportLink(){ return supportLink.getAttribute("href");}
 
     public void clickTermsLink(){termsLink.click();}
 
