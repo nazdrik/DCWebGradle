@@ -5,7 +5,7 @@
         <classes>
             <!--<class name="com.createConfig.MakeConfig" />-->
             <class name="LogInLogOutTest" />
-
+            <class name="ForgotPasswordTest"/>
         </classes>
     </test>
 </suite>

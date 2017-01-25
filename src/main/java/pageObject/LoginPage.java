@@ -58,6 +58,7 @@ public class LoginPage extends AbstractPage{
         forgotPasswordLink.click();
     }
 
+
     public void loginIntoTheApp(String login, String password){
         enterLogin(login);
         enterPassword(password);

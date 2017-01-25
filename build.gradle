@@ -21,7 +21,7 @@ dependencies {
 
 test {
     useTestNG {
-        suites 'src/testconfig/testng.xml'
+        suites 'src/testconfig/suit1.xml'
         useDefaultListeners = true
     }
 }

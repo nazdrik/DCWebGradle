@@ -52,7 +52,7 @@ public class ForgotPasswordTest extends TestBase {
 
     }
 
-    @Test(priority = 1, alwaysRun = true)
+    @Test(priority = 2, alwaysRun = true)
     public void resetPasswordWithIncorrectEmailTest(){
         Log.info("Trying to reset password using not existing/ incorrect email");
         login.clickForgotPasswordLink();
@@ -70,8 +70,17 @@ public class ForgotPasswordTest extends TestBase {
         });
         assertThat( forgotPassword.getPopupErrorMessage(), is(true));
         Log.info("Ops something went wrong , PASS");
+    }
 
-
+    @Test(priority = 3, alwaysRun = true)
+    public void loginHereLinkTet(){
+        login.clickForgotPasswordLink();
+        login.sleep();
+        Log.info("Click on Login here link");
+        forgotPassword.clickLoginButton();
+        forgotPassword.sleep();
+        assertThat("Login page opens", login.loginButtonIsDisabled(), is(true));
+        Log.info("Login page opens, PASS");
     }
 
 }
