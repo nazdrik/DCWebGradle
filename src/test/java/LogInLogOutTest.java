@@ -122,6 +122,8 @@ public class LogInLogOutTest  extends TestBase {
         home.logOut();
         Log.info("Log out successfully, PASS");
 
+        loginTest();
+
     }
 
 }
